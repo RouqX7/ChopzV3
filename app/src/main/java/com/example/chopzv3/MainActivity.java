@@ -2,10 +2,15 @@ package com.example.chopzv3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.chopzv3.AdminUser.AdminSignIn;
+import com.example.chopzv3.ClientUser.ClientUserSignIn;
+import com.example.chopzv3.DriverUser.DriverSignIn;
+import com.example.chopzv3.RestaurantUser.RestaurantSignIn;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,16 +39,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if(view == clientUser){
-            Toast.makeText(this, "Client User Active", Toast.LENGTH_SHORT).show();
+           Intent clientUser = new Intent(MainActivity.this, ClientUserSignIn.class);
+           startActivity(clientUser);
         }else if (view == restaurantUser){
-            Toast.makeText(this, "Restaurant User Active", Toast.LENGTH_SHORT).show();
-
+            Intent restaurantUser = new Intent(MainActivity.this, RestaurantSignIn.class);
+            startActivity(restaurantUser);
         }else if (view == driverUser){
-            Toast.makeText(this, "Driver User Active", Toast.LENGTH_SHORT).show();
-
+            Intent driverUser = new Intent(MainActivity.this, DriverSignIn.class);
+            startActivity(driverUser);
         }else if (view == adminUser){
-            Toast.makeText(this, "Admin User Active", Toast.LENGTH_SHORT).show();
-
+            Intent adminUser = new Intent(MainActivity.this, AdminSignIn.class);
+            startActivity(adminUser);
         }
     }
 }
